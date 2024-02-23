@@ -1,1 +1,2 @@
-# cluster
+# GitOps Cluster-scoped resources
+
