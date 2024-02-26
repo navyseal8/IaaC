@@ -15,6 +15,7 @@ spec:
     name: myconfigmap
   registrySources: 
     allowedRegistries:
+    - docker.io
     - example.com
     - quay.io
     - registry.redhat.io
