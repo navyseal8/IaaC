@@ -9,4 +9,3 @@ spec:
   name: aws-efs-csi-driver-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: aws-efs-csi-driver-operator.4.13.0-202402081808
