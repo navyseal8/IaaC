@@ -2,12 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: clusterconfigs
+  namespace: openshift-gitops
 spec:
   generators:
   - list:
       elements:
-      - cluster: rosa-4c9wq
-        url: https://api.rosa-4c9wq.bo87.p1.openshiftapps.com:6443
+      - cluster: rosa-8bsr9
+        url: https://api.rosa-8bsr9.jnu5.p1.openshiftapps.com:6443
       - cluster: in-cluster
         url: https://kubernetes.default.svc
   template:
@@ -19,7 +20,7 @@ spec:
         directory:
           jsonnet: {}
           recurse: true
-        repoURL: https://github.com/navyseal8/IaaC.git
+        repoURL: https://github.com/navyseal8/acm.git
         targetRevision: HEAD
         path: applicationset/list-generator/clusterconfigs/{{cluster}}
       destination:
