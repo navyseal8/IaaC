@@ -6,21 +6,22 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: engineering-dev
-        url: https://1.2.3.4
-      - cluster: engineering-prod
-        url: https://2.4.6.8
-      - cluster: finance-preprod
-        url: https://9.8.7.6
+      - cluster: rosa-4c9wq
+        url: https://api.rosa-4c9wq.bo87.p1.openshiftapps.com:6443
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
   template:
     metadata:
       name: '{{cluster}}-clusterconfigs'
     spec:
       project: default
       source:
+        directory:
+          jsonnet: {}
+          recurse: true
         repoURL: https://github.com/navyseal8/IaaC.git
         targetRevision: HEAD
-        path: applicationset/examples/list-generator/clusterconfigs/{{cluster}}
+        path: applicationset/list-generator/clusterconfigs/{{cluster}}
       destination:
         server: '{{url}}'
         namespace: clusterconfigs
